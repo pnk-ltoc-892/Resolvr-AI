@@ -10,7 +10,9 @@ export const onUserSignup = inngest.createFunction(
     
     async ({event, step}) => {
         try {
+            // Data Is Passed When Firing Event
             const {email} = event.data
+            
             // Step -1 Pipeline
             const user = await step.run("get-user-email", async() => {
                 const userObject = await User.findOne({email})
