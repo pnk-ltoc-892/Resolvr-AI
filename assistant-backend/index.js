@@ -14,15 +14,15 @@ import { onTicketCreated } from "./inngest/functions/on-ticket-create.js";
 import dotenv from "dotenv";
 dotenv.config();
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 8000;
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
 // Api Routes
-app.use("api/auth", userRoutes)
-app.use("api/tickets", ticketRoutes)
+app.use("/api/auth", userRoutes)
+app.use("/api/tickets", ticketRoutes)
 
 // Inngest Api Invoking Route
 app.use("/api/inngest", serve({
@@ -35,6 +35,6 @@ mongoose
     .connect(process.env.MONGO_URI)
     .then(() => {
         console.log("MongoDB connected ✅");
-        app.listen(PORT, () => console.log("🚀 Server at http://localhost:3000"));
+        app.listen(PORT, () => console.log("🚀 Server at http://localhost:", process.env.PORT));
     })
     .catch((err) => console.error("❌ MongoDB error: ", err));
