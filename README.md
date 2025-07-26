@@ -107,7 +107,7 @@ Follow these steps to run **Resolvr-AI** locally on your machine:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/Resolvr-AI.git
+git clone https://github.com/pnk-ltoc-892/Resolvr-AI.git
 cd Resolvr-AI
 ```
 
